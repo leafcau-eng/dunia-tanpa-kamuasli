@@ -160,7 +160,32 @@ document.querySelector("#s5 .big").textContent =
 // Slide 6
 document.querySelector("#s6 .big").textContent =
     data.slide6 || document.querySelector("#s6 .big").textContent;
+// Slide 6
+document.querySelector("#s6 .big").textContent =
+    data.slide6 || document.querySelector("#s6 .big").textContent;
 
+// Media Slide 6
+if (data.foto1) {
+    const photoBox = document.querySelector("#s6 .photo");
+
+    if (data.foto1.endsWith(".mp4")) {
+        photoBox.innerHTML =
+            `<video src="photos/${data.foto1}"
+             controls
+             autoplay
+             muted
+             loop
+             style="width:100%;height:100%;object-fit:cover;"></video>`;
+    } else {
+        photoBox.innerHTML =
+            `<img src="photos/${data.foto1}"
+             style="width:100%;height:100%;object-fit:cover;">`;
+    }
+}
+
+// Slide 7
+document.querySelector("#s7 .big").textContent =
+    data.slide7 || document.querySelector("#s7 .big").textContent;
 // Slide 7
 document.querySelector("#s7 .big").textContent =
     data.slide7 || document.querySelector("#s7 .big").textContent;
