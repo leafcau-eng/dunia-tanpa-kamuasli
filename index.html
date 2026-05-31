@@ -189,6 +189,14 @@ document.querySelector("#s7 .big").textContent =
 // Slide 7
 document.querySelector("#s7 .big").textContent =
     data.slide7 || document.querySelector("#s7 .big").textContent;
+// Media Slide 7
+if (data.foto1) {
+    const photoBox7 = document.querySelector("#s7 .photo");
+
+    photoBox7.innerHTML =
+      `<img src="photos/${data.foto1}"
+      style="width:100%;height:100%;object-fit:cover;">`;
+}
 
 // Slide 8
 document.querySelector("#s8 .big").textContent =
