@@ -134,24 +134,6 @@ mkFrame('c6',200,169,110);mkFrame('c7',201,71,74);
 (function(){var ctx=mkCtx('c12');var pts=[];for(var i=0;i<60;i++)pts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.3,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,o:Math.random()*.07+.02});function draw(){ctx.clearRect(0,0,W,H);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(10,10,15,'+p.o+')';ctx.fill();});requestAnimationFrame(draw);}draw();})();
 
 function buildCards(){var el=document.getElementById('mcards');if(el.children.length)return;['Hari Pertama','Momen Lucu','Perjalanan','Dinner Spesial','Ulang Tahun','Foto Favorit','Kejutan Kecil','Tertawa Bareng'].forEach(function(label){var c=document.createElement('div');c.className='mc';c.textContent=label;c.onclick=function(){this.style.borderColor='#c9474a';this.style.color='#c9474a';var s=this;setTimeout(function(){s.style.borderColor='';s.style.color='';},700);};el.appendChild(c);});}
-fetch("data.json")
-.then(r => r.json())
-.then(data => {
-
-  // Slide 1
-  document.querySelector("#s1 .big").textContent =
-    data.slide1 || "Aku ingin menunjukkan sesuatu...";
-
-  // Slide 2
-  document.querySelector("#s2 .big").textContent =
-    data.slide2 || "Ini dunia sebelum kamu.";
-
-  // Slide terakhir
-  document.querySelector(".fdate").textContent =
-    data.nama + " · " + data.tanggal;
-
-})
-.catch(err => console.log(err));
 
 updateUI();
 </script>
